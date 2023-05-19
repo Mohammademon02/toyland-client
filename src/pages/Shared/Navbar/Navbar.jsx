@@ -21,7 +21,7 @@ const Navbar = () => {
                         {navItems}
                     </ul>
                 </div>
-                <a className="btn btn-ghost normal-case text-xl">daisyUI</a>
+                <Link className="btn btn-ghost normal-case text-xl">ToyLand</Link>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">
@@ -29,8 +29,8 @@ const Navbar = () => {
                 </ul>
             </div>
             <div className="navbar-end">
-                <Link className="btn mr-4">Login</Link>
-                <Link className="btn">Register</Link>
+                <Link to="/login" className="btn mr-4">Login</Link>
+                <Link to="/register" className="btn">Register</Link>
             </div>
         </div>
     );
