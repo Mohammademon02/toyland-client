@@ -1,10 +1,12 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
 
 
 const Register = () => {
+
+    const [error, setError] = useState('');
 
     const { createUser } = useContext(AuthContext);
 
@@ -18,14 +20,16 @@ const Register = () => {
 
         console.log(name, photo, email, password)
 
-
+        setError('');
         createUser(email, password)
             .then(result => {
-                const user = result.user;
-                console.log(user)
+                const createdUser = result.user;
+                console.log(createdUser)
+                setError('')
             })
             .catch(error => {
-                console.error(error)
+                console.error(error);
+                setError(error.message);
             })
 
     }
@@ -43,31 +47,33 @@ const Register = () => {
                                         <label className="label">
                                             <span className="label-text">Name</span>
                                         </label>
-                                        <input type="text" name="name" placeholder="name" className="input input-bordered" />
+                                        <input type="text" name="name" placeholder="name" required className="input input-bordered" />
                                     </div>
                                     <div className="form-control">
                                         <label className="label">
                                             <span className="label-text">Photo URL</span>
                                         </label>
-                                        <input type="text" name="photo" placeholder="photo" className="input input-bordered" />
+                                        <input type="text" name="photo" placeholder="photo" required className="input input-bordered" />
                                     </div>
                                     <div className="form-control">
                                         <label className="label">
                                             <span className="label-text">Email</span>
                                         </label>
-                                        <input type="text" name="email" placeholder="email" className="input input-bordered" />
+                                        <input type="text" name="email" placeholder="email" required className="input input-bordered" />
                                     </div>
                                     <div className="form-control">
                                         <label className="label">
                                             <span className="label-text">Password</span>
                                         </label>
-                                        <input type="text" name="password" placeholder="password" className="input input-bordered" />
+                                        <input type="text" name="password" placeholder="password" required className="input input-bordered" />
                                     </div>
                                     <div className="form-control mt-6">
                                         <button className="btn btn-secondary">Register</button>
                                     </div>
                                     <br />
                                     <p>Already have an account ? <Link to="/login" >Login</Link></p>
+                                    <br />
+                                    <p className="text-red-500 font-semibold">{error}</p>
                                 </form>
                             </div>
                         </div>
