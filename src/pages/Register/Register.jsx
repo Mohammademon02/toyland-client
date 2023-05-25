@@ -2,13 +2,14 @@ import { useContext, useState } from "react";
 import { } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
+import { Button, Checkbox, Label, TextInput } from "flowbite-react";
 
 
 const Register = () => {
 
     const [error, setError] = useState('');
 
-    const { createUser } = useContext(AuthContext);
+    const { createUser, profileUpdate } = useContext(AuthContext);
 
     const handleRegister = event => {
         event.preventDefault();
@@ -21,9 +22,10 @@ const Register = () => {
         console.log(name, photo, email, password)
 
         setError('');
-        createUser(email, password)
+        createUser (email, password)
             .then(result => {
                 const createdUser = result.user;
+                profileUpdate( createdUser, name, photo)
                 console.log(createdUser)
                 setError('')
             })
@@ -35,52 +37,123 @@ const Register = () => {
     }
 
     return (
-        <section className=" bg-base-200">
-            <div className="container mx-auto">
-                <div className="hero">
-                    <div className="hero-content flex-col w-full">
-                        <h1 className="text-5xl font-bold mb-4">Register Now</h1>
-                        <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-                            <div className="card-body">
-                                <form onSubmit={handleRegister} >
-                                    <div className="form-control">
-                                        <label className="label">
-                                            <span className="label-text">Name</span>
-                                        </label>
-                                        <input type="text" name="name" placeholder="name" required className="input input-bordered" />
-                                    </div>
-                                    <div className="form-control">
-                                        <label className="label">
-                                            <span className="label-text">Photo URL</span>
-                                        </label>
-                                        <input type="text" name="photo" placeholder="photo" required className="input input-bordered" />
-                                    </div>
-                                    <div className="form-control">
-                                        <label className="label">
-                                            <span className="label-text">Email</span>
-                                        </label>
-                                        <input type="text" name="email" placeholder="email" required className="input input-bordered" />
-                                    </div>
-                                    <div className="form-control">
-                                        <label className="label">
-                                            <span className="label-text">Password</span>
-                                        </label>
-                                        <input type="text" name="password" placeholder="password" required className="input input-bordered" />
-                                    </div>
-                                    <div className="form-control mt-6">
-                                        <button className="btn btn-secondary">Register</button>
-                                    </div>
-                                    <br />
-                                    <p>Already have an account ? <Link to="/login" >Login</Link></p>
-                                    <br />
-                                    <p className="text-red-500 font-semibold">{error}</p>
-                                </form>
-                            </div>
-                        </div>
+        <div className="container mx-auto">
+            <form onSubmit={handleRegister} className=" lg:w-1/2 md:w-1/2 sm:w-full mx-auto px-3 flex flex-col gap-4">
+                <div>
+                    <div className="mb-2 block">
+                        <Label
+                            htmlFor="name"
+                            value="Your Name"
+                        />
                     </div>
+                    <TextInput
+                        name="name"
+                        id="name"
+                        type="text"
+                        placeholder="Your name"
+                        required={true}
+                        shadow={true}
+                    />
                 </div>
-            </div>
-        </section>
+                <div>
+                    <div className="mb-2 block">
+                        <Label
+                            htmlFor="photo"
+                            value="Your Photo"
+                        />
+                    </div>
+                    <TextInput
+                        name="photo"
+                        id="photo"
+                        type="text"
+                        placeholder="Photo"
+                        required={true}
+                        shadow={true}
+                    />
+                </div>
+                <div>
+                    <div className="mb-2 block">
+                        <Label
+                            htmlFor="email"
+                            value="Your email"
+                        />
+                    </div>
+                    <TextInput
+                        name="email"
+                        id="email"
+                        type="text"
+                        placeholder="Your email address"
+                        required={true}
+                        shadow={true}
+                    />
+                </div>
+                <div>
+                    <div className="mb-2 block">
+                        <Label
+                            htmlFor="password2"
+                            value="Your password"
+                        />
+                    </div>
+                    <TextInput
+                        name="password"
+                        id="password2"
+                        type="password"
+                        placeholder="Password"
+                        required={true}
+                        shadow={true}
+                    />
+                </div>
+                <div>
+                    <div className="mb-2 block">
+                        <Label
+                            htmlFor="repeat-password"
+                            value="Repeat password"
+                        />
+                    </div>
+                    <TextInput
+                        name="confirm"
+                        id="repeat-password"
+                        placeholder="Confirm password"
+                        type="password"
+                        required={true}
+                        shadow={true}
+                    />
+                </div>
+                <div className="flex items-center gap-2">
+                    <Checkbox id="agree" />
+                    <Label htmlFor="agree">
+                        I agree with the <span> </span>
+                        <Link
+                            href="/forms"
+                            className="text-blue-600 hover:underline dark:text-blue-500"
+                        >
+                            terms and conditions
+                        </Link>
+                    </Label>
+                </div>
+                <Button type="submit">
+                    Register new account
+                </Button>
+                <div className="flex items-center gap-2">
+                    <Label className="text-2xl">
+                        Already have an account ? <span> </span>
+                        <Link
+                            to="/login"
+                            className="text-blue-600 hover:underline dark:text-blue-500"
+                        >
+                            Login
+                        </Link>
+                    </Label>
+                </div>
+                <br />
+                <div className="flex items-center gap-2">
+                    <Label className="text-2xl font-bold text-red-700" >
+                        {error}
+                    </Label>
+                </div>
+
+            </form>
+        </div>
     );
 };
 
