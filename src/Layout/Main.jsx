@@ -5,7 +5,7 @@ import FooterSection from "../pages/Shared/FooterSection/FooterSection";
 
 const Main = () => {
     return (
-        <div>
+        <div className="container mx-auto">
             <NavigationBar></NavigationBar>
             <Outlet></Outlet>
             <FooterSection></FooterSection>

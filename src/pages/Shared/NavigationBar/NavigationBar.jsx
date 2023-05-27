@@ -36,7 +36,8 @@ const NavigationBar = () => {
                             <Dropdown
                                 arrowIcon={false}
                                 inline={true}
-                                label={<Avatar alt="User settings" img={user?.photoURL} rounded={true} />}
+                                label={<Avatar alt="User settings" img={user?.photoURL} rounded={true}
+                                    bordered={true} color="success" status="online"/>}
                             >
                                 <Dropdown.Header>
                                     <span className="block text-sm">

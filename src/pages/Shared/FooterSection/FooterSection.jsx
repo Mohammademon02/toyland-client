@@ -5,9 +5,9 @@ import { BsFacebook, BsTwitter, BsInstagram, BsGithub, BsDribbble } from 'react-
 
 const FooterSection = () => {
     return (
-        <section className=" mt-5">
-            <Footer container={true} bgDark={true}>
-                <div className="w-full">
+        <section className="container mx-auto mt-5">
+            <Footer container={true}  bgDark={true}>
+                <div className=" w-full">
                     <div className="grid w-full justify-between sm:flex sm:justify-between md:flex md:grid-cols-1">
                         <div>
                             <Footer.Brand

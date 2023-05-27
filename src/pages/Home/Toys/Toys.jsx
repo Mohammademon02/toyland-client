@@ -1,10 +1,10 @@
-import SingleToy from "../Home/SingleToy/SingleToy";
+import SingleToy from "../SingleToy/SingleToy";
 
 
 const Toys = ({toys}) => {
     
     return (
-        <div className="grid grid-cols-3">
+        <div  className="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-3 ">
             {toys?.map((toy) => (
                 <SingleToy key={toy?._id} toy={toy} />
             ))}

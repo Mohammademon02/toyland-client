@@ -25,8 +25,8 @@ const AddToy = () => {
             title: title,
             price: price,
             quantity: quantity,
-            photoUrl: photo, email:
-            email,
+            photoUrl: photo,
+            email: email,
             rating: rating,
             description: description,
             sub_category: category,
@@ -50,7 +50,6 @@ const AddToy = () => {
         <div className="max-w-lg px-4 mx-auto py-4 flex min-h justify-center items-center flex-col gap-4">
             <h2 className="font-bold text-2xl ">Add a Toy</h2>
             <form
-                id="addform"
                 onSubmit={handleAddToy}
                 className="grid lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1 gap-6 w-full"
             >
@@ -157,7 +156,6 @@ const AddToy = () => {
                             id="userName"
                             type="text"
                             disabled
-                            required={true}
                             shadow={true}
                             value={user?.displayName}
                         />
@@ -171,7 +169,6 @@ const AddToy = () => {
                             id="userEmail"
                             type="text"
                             disabled
-                            required={true}
                             shadow={true}
                             value={user?.email}
                         />
