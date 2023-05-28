@@ -80,7 +80,7 @@ const NavigationBar = () => {
 
                     <NavLink to="/allToys">All Toys</NavLink>
 
-                    <NavLink to="/myToy">My Toy </NavLink>
+                    <NavLink to="/myToys">My Toys </NavLink>
 
                     <NavLink to="/addToy">Add Toy</NavLink>
 
