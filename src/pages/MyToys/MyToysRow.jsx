@@ -2,7 +2,7 @@ import { Button, Table } from "flowbite-react";
 import { Link } from "react-router-dom";
 
 
-const MyToysRow = ({toy}) => {
+const MyToysRow = ({toy, handleDelete}) => {
     return (
         <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
             <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
@@ -23,7 +23,7 @@ const MyToysRow = ({toy}) => {
             <Table.Cell className="flex gap-4">
                 <span>
                     <Link
-                        to={`/details/${toy?._id}`}
+                        to={`/myToys/${toy?._id}`}
                         className="font-medium"
                     >
                         <Button gradientMonochrome="lime">
@@ -33,7 +33,7 @@ const MyToysRow = ({toy}) => {
                 </span>
                 <span>
                     <Link
-                        to={`/details/${toy?._id}`}
+                        onClick={()=> handleDelete(toy?._id)}
                         className="font-medium"
                     >
                         <Button gradientMonochrome="failure">

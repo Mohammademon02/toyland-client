@@ -12,10 +12,26 @@ const MyToys = () => {
 
     useEffect(() => {
         fetch(`http://localhost:5000/myToys?email=${user?.email}`)
-        .then(res => res.json())
-        .then(data => setToys(data))
+            .then(res => res.json())
+            .then(data => setToys(data))
     }, [user?.email])
 
+    console.log(toys)
+
+    const handleDelete = (_id) => {
+
+        fetch(`http://localhost:5000/myToys/${_id}`, {
+            method: 'DELETE'
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+                if (data.deletedCount > 0){
+                    alert('Toy deleted successfully')
+                    setToys((previous) => previous.filter((toy) => toy._id !== _id))
+                }
+        })
+    }
 
     return (
         <div className="overflow-auto">
@@ -44,9 +60,10 @@ const MyToys = () => {
                 </Table.Head>
                 <Table.Body className="divide-y">
                     {
-                        toys?.map(toy => <MyToysRow 
-                        toy={toy}
-                        key={toy._id}
+                        toys?.map(toy => <MyToysRow
+                            toy={toy}
+                            key={toy._id}
+                            handleDelete={handleDelete}
                         ></MyToysRow>)
                     }
                 </Table.Body>
