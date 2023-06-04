@@ -5,7 +5,9 @@ const SingleToy = ({ toy }) => {
 
     return (
 
-        <div className="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+        <div data-aos="flip-left"
+            data-aos-easing="ease-out-cubic"
+            data-aos-duration="2000" className="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
             <a href="#">
                 <img className="p-8 rounded-t-lg" src={toy?.photoUrl} alt="product image" />
             </a>

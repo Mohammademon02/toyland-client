@@ -9,17 +9,17 @@ const ToyCategories = () => {
     const [toys, setToys] = useState();
 
 
-    useEffect( () => {
+    useEffect(() => {
         fetch(`http://localhost:5000/allToys?category=${categories}`)
-        .then(res => res.json())
-        .then(data => setToys(data))
-    } ,[categories])
-    
+            .then(res => res.json())
+            .then(data => setToys(data))
+    }, [categories])
+
     return (
         <div>
-            <section className=" container mx-auto px-4 py-12">
-                <div className="mx-auto w-fit  font-bold text-xl md:text-5xl text-[#EC0973] px-8 md:pt-4 md:pb-5 py-3 border-0 mb-8">
-                    Shop by category
+            <section className=" container mx-auto px-2 py-6">
+                <div className="mx-auto w-fit  font-bold text-xl md:text-5xl px-8 md:pt-4 md:pb-5 py-3 border-0 mb-8">
+                    Toy Category Section
                 </div>
                 <div>
                     <Tabs>
@@ -29,7 +29,7 @@ const ToyCategories = () => {
                             <Tab onClick={() => setCategories('truck')}>Truck</Tab>
                         </TabList>
                         <TabPanel >
-                           <Toys toys={toys} ></Toys>
+                            <Toys toys={toys} ></Toys>
                         </TabPanel>
                         <TabPanel >
                             <Toys toys={toys} ></Toys>
