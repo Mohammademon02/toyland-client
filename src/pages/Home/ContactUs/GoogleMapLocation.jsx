@@ -9,7 +9,7 @@ const position = [23.85177909043909, 90.26347336582818]
 const GoogleMapLocation = () => {
     return (
 
-        <MapContainer center={position} zoom={50} scrollWheelZoom={true}>
+        <MapContainer center={position} zoom={16} scrollWheelZoom={true}>
             <TileLayer
                 attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
