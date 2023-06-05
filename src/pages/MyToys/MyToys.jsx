@@ -35,7 +35,7 @@ const MyToys = () => {
     return (
         <section>
             <div className="flex items-center justify-end my-3">
-                <p className="mr-2">Sort by price : </p>
+                <p className="mr-2 font-semibold uppercase" >Sort by price : </p>
                 <select
                     name="cetagory"
                     onChange={(event) => setSort(event.target.value)}
