@@ -2,9 +2,8 @@
 
 const Reviews = ({review}) => {
 
-    console.log(review)
     return (    
-        <div className="flex flex-col h-full text-center items-center justify-center bg-gray-200">
+        <div className="flex flex-col h-full text-center items-center justify-center ">
             <h4 className="lg:mb-7 md:mb-5 mb-3 text-3xl font-semibold">{review?.name}</h4>
             <div className="mt-2.5 mb-5 flex items-center">
                 <svg

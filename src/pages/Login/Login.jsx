@@ -54,6 +54,7 @@ const Login = () => {
                         shadow={true}
                     />
                 </div>
+                <div>
                     <div className="mb-2 block">
                         <Label
                             htmlFor="password2"
@@ -68,6 +69,7 @@ const Login = () => {
                         required={true}
                         shadow={true}
                     />
+                </div>    
                 <Button type="submit">
                     Login 
                 </Button>

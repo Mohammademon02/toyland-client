@@ -1,3 +1,4 @@
+import ContactUs from "../ContactUs/ContactUs";
 import CustomerReviews from "../CustomerReviews/CustomerReviews";
 import Header from "../Header/Header";
 import PhotoGallery from "../PhotoGallery/PhotoGallery";
@@ -11,6 +12,7 @@ const Home = () => {
             <ToyCategories></ToyCategories>
             <PhotoGallery></PhotoGallery>
             <CustomerReviews></CustomerReviews>
+            <ContactUs></ContactUs>
         </div>
     );};
 
