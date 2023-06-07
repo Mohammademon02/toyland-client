@@ -8,6 +8,7 @@ const Blog = () => {
             <Helmet>
                 <title>Toyland | Blog</title>
             </Helmet>
+            <h1 className="mx-auto w-fit  font-bold text-xl md:text-5xl px-8 md:pt-4 md:pb-5 py-3 border-0 mb-8">Blog</h1>
             <Card className="mt-5">
                 <h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
                     <p>

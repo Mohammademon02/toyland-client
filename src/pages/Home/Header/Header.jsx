@@ -3,8 +3,8 @@ import { Carousel } from "flowbite-react";
 
 const Header = () => {
     return (
-        <div className="h-56 sm:h-64 xl:h-80 2xl:h-96">
-            <Carousel className="h-auto max-w-full">
+        <div className="h-56 sm:h-64 xl:h-80 2xl:h-96 mt-5">
+            <Carousel className="h-auto">
                 <img
                     src="https://i.ibb.co/PrMVW3r/banner-3-1.jpg"
                 />

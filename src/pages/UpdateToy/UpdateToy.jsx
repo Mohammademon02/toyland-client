@@ -183,7 +183,7 @@ const UpdateToy = () => {
                             <option value="truck">Truck</option>
                         </select>
                     </div>
-                    <Button className="mt-9 w-full" type="submit">Update Toy</Button>
+                    <Button className="mt-9 w-full bg-gradient-to-r from-[#1CB5E0] to-[#000851] border-none" type="submit">Update Toy</Button>
                 </div>
             </form>
         </div>

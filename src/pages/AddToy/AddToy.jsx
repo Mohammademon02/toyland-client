@@ -190,7 +190,7 @@ const AddToy = () => {
                             value={user?.email}
                         />
                     </div>
-                    <Button className="mt-9 w-full" type="submit">Add Toy</Button>
+                    <Button className="mt-9 w-full bg-gradient-to-r from-[#1CB5E0] to-[#000851] border-none" type="submit">Add Toy</Button>
                 </div>
             </form>
         </div>

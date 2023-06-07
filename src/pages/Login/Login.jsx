@@ -3,6 +3,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
 import { Button, Label, TextInput } from "flowbite-react";
 import { Helmet } from "react-helmet-async";
+import GoogleLogin from "./GoogleLogin";
 
 
 const Login = () => {
@@ -41,6 +42,7 @@ const Login = () => {
             <Helmet>
                 <title>Toyland | Login</title>
             </Helmet>
+            <h1 className="mx-auto w-fit  font-bold text-xl md:text-5xl px-8 md:pt-4 md:pb-5 py-3 border-0 mb-8">Please Login</h1>
             <form onSubmit={handleLogin} className=" lg:w-1/2 md:w-1/2 sm:w-full mx-auto px-3 flex flex-col gap-4">
                 
                 <div>
@@ -89,6 +91,8 @@ const Login = () => {
                         </Link>
                     </Label>
                 </div>
+                <h1 className="text-center text-2xl my-2">Or</h1>
+                <GoogleLogin></GoogleLogin>
                 <br />
                 <div className="flex items-center gap-2">
                     <Label className="text-2xl font-bold text-red-700" >

@@ -17,11 +17,11 @@ const ToyCategories = () => {
 
     return (
         <div>
-            <section className=" container mx-auto px-2 py-6">
+            <section className=" container mx-auto px-2 py-6 ">
                 <div className="mx-auto w-fit  font-bold text-xl md:text-5xl px-8 md:pt-4 md:pb-5 py-3 border-0 mb-8">
-                    Toy Category Section
+                    Toy Category
                 </div>
-                <div>
+                <div >
                     <Tabs>
                         <TabList>
                             <Tab onClick={() => setCategories('sports')}>Sports Car</Tab>

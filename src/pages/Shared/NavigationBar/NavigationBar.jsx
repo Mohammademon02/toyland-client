@@ -15,21 +15,25 @@ const NavigationBar = () => {
             .catch(error => console.log(error));
     }
 
+    const navLinkStyle = ({ isActive }) => {
+        return {
+            background: isActive ? 'linear-gradient(90deg, #1CB5E0 0%, #000851 100%)' : "",
+            color: isActive ? 'white' : "",
+        }
+    }
+
     return (
         <section className="container mx-auto">
             <Navbar
                 fluid={true}
                 rounded={true}
             >
-                <Navbar.Brand >
+                <Link>
                     <img
-                        src="https://flowbite.com/docs/images/logo.svg"
+                        src="https://i.ibb.co/Yc9p53s/Asset-1xhdpi.png"
                         className="mr-3 h-6 sm:h-9"
                     />
-                    <span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white">
-                        ToyLand
-                    </span>
-                </Navbar.Brand>
+                </Link>
                 <div className="flex md:order-2">
                     {
                         user ?
@@ -62,37 +66,33 @@ const NavigationBar = () => {
                             :
                             <div className="flex gap-2">
                                 {user ?
-                                    <Link className="hidden" to={"/login"}>
+                                    <NavLink className="hidden" to={"/login"}>
                                         <Button size={"sm"}>Login Now</Button>
-                                    </Link>
+                                    </NavLink>
                                     :
-                                    <Link to={"/login"}>
+                                    <NavLink to={"/login"}>
                                         <Button size={"sm"}>Login Now</Button>
-                                    </Link>
+                                    </NavLink>
                                 }
                                 {user ?
-                                    <Link className="hidden" to={"/register"}>
+                                    <NavLink className="hidden" to={"/register"}>
                                         <Button size={"sm"}>Register Now</Button>
-                                    </Link>
+                                    </NavLink>
                                     :
-                                    <Link to={"/register"}>
+                                    <NavLink to={"/register"}>
                                         <Button size={"sm"}>Register Now</Button>
-                                    </Link>
+                                    </NavLink>
                                 }
                             </div>
                     }
                     <Navbar.Toggle />
                 </div>
                 <Navbar.Collapse>
-                    <NavLink to="/">Home</NavLink>
-
-                    <NavLink to="/allToys">All Toys</NavLink>
-
-                    <NavLink to="/myToys">My Toys </NavLink>
-
-                    <NavLink to="/addToy">Add Toy</NavLink>
-
-                    <NavLink to="/blog">Blog </NavLink>
+                    <NavLink className="px-3 py-2 rounded" style={navLinkStyle} to="/">Home</NavLink>
+                    <NavLink className="px-3 py-2 rounded" style={navLinkStyle} to="/allToys">All Toys</NavLink>
+                    <NavLink className="px-3 py-2 rounded" style={navLinkStyle} to="/myToys">My Toys </NavLink>
+                    <NavLink className="px-3 py-2 rounded" style={navLinkStyle} to="/addToy">Add Toy</NavLink>
+                    <NavLink className="px-3 py-2 rounded" style={navLinkStyle} to="/blog">Blog </NavLink>
                 </Navbar.Collapse>
             </Navbar>
         </section>
