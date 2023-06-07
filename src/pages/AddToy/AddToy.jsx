@@ -1,13 +1,15 @@
 import { Button, Label, TextInput } from "flowbite-react";
 import { useContext } from "react";
 import { AuthContext } from "../../providers/AuthProvider";
+import { useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
+import { Helmet } from "react-helmet-async";
 
 
 const AddToy = () => {
 
     const { user } = useContext(AuthContext);
-    console.log(user)
-
+    const navigate = useNavigate();
 
     const handleAddToy = event => {
         event.preventDefault();
@@ -32,6 +34,7 @@ const AddToy = () => {
             sub_category: category,
             userName: userName
         }
+        form.reset();
 
 
         fetch('http://localhost:5000/allToys', {
@@ -42,12 +45,24 @@ const AddToy = () => {
             body: JSON.stringify(toy)
         })
             .then(res => res.json())
-            .then(data => console.log(data))
+            .then(data => {
+                console.log(data)
+                if (data.insertedId){
+                    Swal.fire(
+                        'Toy Added!',
+                        'success'
+                    )
+                    navigate("/myToys")
+                }
+            })
     }
 
 
     return (
         <div className="max-w-lg px-4 mx-auto py-4 flex min-h justify-center items-center flex-col gap-4">
+            <Helmet>
+                <title>Toyland | Add Toy</title>
+            </Helmet>
             <h2 className="font-bold text-2xl ">Add a Toy</h2>
             <form
                 onSubmit={handleAddToy}
@@ -137,10 +152,12 @@ const AddToy = () => {
                             Category
                         </label>
                         <select
+                            required={true}
                             id="categories"
                             name="category"
                             className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
                         >
+                            <option value="" selected disabled hidden >Select</option>
                             <option value="regular">Regular Car</option>
                             <option value="sports">Sports Car</option>
                             <option value="truck">Truck</option>

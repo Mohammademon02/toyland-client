@@ -2,6 +2,7 @@ import { useContext, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
 import { Button, Label, TextInput } from "flowbite-react";
+import { Helmet } from "react-helmet-async";
 
 
 const Login = () => {
@@ -26,6 +27,7 @@ const Login = () => {
             .then(result => {
                 const loggedUser = result.user;
                 console.log(loggedUser);
+                setError('')
                 navigate(from, { replace: true })
             })
             .catch(error => {
@@ -36,6 +38,9 @@ const Login = () => {
 
     return (
         <div className="container mx-auto">
+            <Helmet>
+                <title>Toyland | Login</title>
+            </Helmet>
             <form onSubmit={handleLogin} className=" lg:w-1/2 md:w-1/2 sm:w-full mx-auto px-3 flex flex-col gap-4">
                 
                 <div>

@@ -2,6 +2,8 @@ import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../providers/AuthProvider";
 import { Table } from "flowbite-react";
 import MyToysRow from "./MyToysRow";
+import Swal from "sweetalert2";
+import { Helmet } from "react-helmet-async";
 
 
 const MyToys = () => {
@@ -19,21 +21,41 @@ const MyToys = () => {
 
     const handleDelete = (_id) => {
 
-        fetch(`http://localhost:5000/myToys/${_id}`, {
-            method: 'DELETE'
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You want to delete this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#4DC71F',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+
+                fetch(`http://localhost:5000/myToys/${_id}`, {
+                    method: 'DELETE'
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        console.log(data)
+                        if (data.deletedCount > 0) {
+                            Swal.fire(
+                                'Deleted!',
+                                'Your toy has been deleted.',
+                                'success'
+                            )
+                            setToys((previous) => previous.filter((toy) => toy._id !== _id))
+                        }
+                    })
+            }
         })
-            .then(res => res.json())
-            .then(data => {
-                console.log(data)
-                if (data.deletedCount > 0) {
-                    alert('Toy deleted successfully')
-                    setToys((previous) => previous.filter((toy) => toy._id !== _id))
-                }
-            })
     }
 
     return (
         <section>
+            <Helmet>
+                <title>Toyland | My Toy</title>
+            </Helmet>
             <div className="flex items-center justify-end my-3">
                 <p className="mr-2 font-semibold uppercase" >Sort by price : </p>
                 <select

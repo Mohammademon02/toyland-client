@@ -1,15 +1,16 @@
 import { useContext, useState } from "react";
 import { } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
 import { Button, Checkbox, Label, TextInput } from "flowbite-react";
+import { Helmet } from "react-helmet-async";
 
 
 const Register = () => {
 
-    const [error, setError] = useState('');
-
     const { createUser, profileUpdate } = useContext(AuthContext);
+    const [error, setError] = useState('');
+    const navigate = useNavigate();
 
     const handleRegister = event => {
         event.preventDefault();
@@ -27,7 +28,7 @@ const Register = () => {
                 const createdUser = result.user;
                 profileUpdate( createdUser, name, photo)
                 console.log(createdUser)
-                setError('')
+                navigate("/")
             })
             .catch(error => {
                 console.error(error);
@@ -38,6 +39,9 @@ const Register = () => {
 
     return (
         <div className="container mx-auto">
+            <Helmet>
+                <title>Toyland | Register</title>
+            </Helmet>
             <form onSubmit={handleRegister} className=" lg:w-1/2 md:w-1/2 sm:w-full mx-auto px-3 flex flex-col gap-4">
                 <div>
                     <div className="mb-2 block">

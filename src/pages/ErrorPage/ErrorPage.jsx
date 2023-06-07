@@ -1,5 +1,6 @@
 import { Link, useRouteError } from "react-router-dom";
 import './ErrorPage.css'
+import { Helmet } from "react-helmet-async";
 
 
 const ErrorPage = () => {
@@ -8,6 +9,9 @@ const ErrorPage = () => {
 
     return (
         <div>
+            <Helmet>
+                <title>Toyland | Error</title>
+            </Helmet>
             <section>
                 <div className='container mx-auto'>
                     <div>

@@ -1,9 +1,13 @@
 import { Card } from "flowbite-react";
+import { Helmet } from "react-helmet-async";
 
 
 const Blog = () => {
     return (
         <section className="container mx-auto mt-9">
+            <Helmet>
+                <title>Toyland | Blog</title>
+            </Helmet>
             <Card className="mt-5">
                 <h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
                     <p>

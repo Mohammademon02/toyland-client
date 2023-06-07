@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { AuthContext } from "../../../providers/AuthProvider";
-import { Avatar, Button, Dropdown, Navbar } from "flowbite-react";
+import { Avatar, Button, Dropdown, Navbar, Tooltip } from "flowbite-react";
 import { Link, NavLink } from "react-router-dom";
 
 
@@ -36,8 +36,16 @@ const NavigationBar = () => {
                             <Dropdown
                                 arrowIcon={false}
                                 inline={true}
-                                label={<Avatar alt="User settings" img={user?.photoURL} rounded={true}
-                                    bordered={true} color="success" status="online"/>}
+                                label={
+                                    <Tooltip
+                                        content={user?.displayName}
+                                        placement="left"
+                                    >
+                                        <Avatar alt="User settings" img={user?.photoURL} rounded={true}
+                                            bordered={true} color="success" status="online"
+                                        />
+                                    </Tooltip>
+                                }
                             >
                                 <Dropdown.Header>
                                     <span className="block text-sm">
