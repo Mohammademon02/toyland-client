@@ -15,7 +15,7 @@ const AllToys = () => {
 
 
     useEffect(() => {
-        fetch(`http://localhost:5000/allToys?search=${search}&page=${currentPage}&limit=${toysPerPage}`)
+        fetch(`https://toyland-server-mohammademon02.vercel.app/allToys?search=${search}&page=${currentPage}&limit=${toysPerPage}`)
             .then(res => res.json())
             .then(data => setToys(data))
     }, [search, currentPage, toysPerPage])

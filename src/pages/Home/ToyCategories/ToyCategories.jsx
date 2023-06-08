@@ -10,7 +10,7 @@ const ToyCategories = () => {
 
 
     useEffect(() => {
-        fetch(`http://localhost:5000/allToys?category=${categories}`)
+        fetch(`https://toyland-server-mohammademon02.vercel.app/allToys?category=${categories}`)
             .then(res => res.json())
             .then(data => setToys(data))
     }, [categories])

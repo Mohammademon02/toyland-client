@@ -14,7 +14,7 @@ const MyToys = () => {
     const { user } = useContext(AuthContext);
 
     useEffect(() => {
-        fetch(`http://localhost:5000/myToys?email=${user?.email}&sort=${sort}`)
+        fetch(`https://toyland-server-mohammademon02.vercel.app/myToys?email=${user?.email}&sort=${sort}`)
             .then(res => res.json())
             .then(data => setToys(data))
     }, [user?.email, sort])
@@ -32,7 +32,7 @@ const MyToys = () => {
         }).then((result) => {
             if (result.isConfirmed) {
 
-                fetch(`http://localhost:5000/myToys/${_id}`, {
+                fetch(`https://toyland-server-mohammademon02.vercel.app/myToys/${_id}`, {
                     method: 'DELETE'
                 })
                     .then(res => res.json())

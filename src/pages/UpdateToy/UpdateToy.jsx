@@ -47,7 +47,7 @@ const UpdateToy = () => {
         }).then((result) => {
             if (result.isConfirmed) {
 
-                fetch(`http://localhost:5000/myToys/${toyInfo?._id}`, {
+                fetch(`https://toyland-server-mohammademon02.vercel.app/myToys/${toyInfo?._id}`, {
                     method: 'PUT',
                     headers: {
                         'content-type': 'application/json'

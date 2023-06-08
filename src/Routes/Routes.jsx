@@ -30,7 +30,7 @@ const router = createBrowserRouter([
             {
                 path: "allToys",
                 element: <AllToys></AllToys>,
-                loader: () => fetch('http://localhost:5000/totalToys')
+                loader: () => fetch('https://toyland-server-mohammademon02.vercel.app/totalToys')
             }
             ,
             {
@@ -53,12 +53,12 @@ const router = createBrowserRouter([
             {
                 path: "details/:id",
                 element: <PrivateRoutes><ToyDetails></ToyDetails></PrivateRoutes>,
-                loader: ({ params }) => fetch(`http://localhost:5000/toy/${params.id}`)
+                loader: ({ params }) => fetch(`https://toyland-server-mohammademon02.vercel.app/toy/${params.id}`)
             },
             {
                 path: "myToys/:id",
                 element: <PrivateRoutes><UpdateToy></UpdateToy></PrivateRoutes>,
-                loader: ({ params }) => fetch(`http://localhost:5000/toy/${params.id}`)
+                loader: ({ params }) => fetch(`https://toyland-server-mohammademon02.vercel.app/toy/${params.id}`)
             }
         ]
     },

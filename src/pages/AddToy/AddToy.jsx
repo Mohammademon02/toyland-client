@@ -37,7 +37,7 @@ const AddToy = () => {
         form.reset();
 
 
-        fetch('http://localhost:5000/allToys', {
+        fetch('https://toyland-server-mohammademon02.vercel.app/allToys', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
